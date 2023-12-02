@@ -1,4 +1,4 @@
-Introduction to Cherry-Pick:
+Introduction to Cherry-Pick: 
 
 Cherry-picking in the context of Git refers to the process of selecting and applying specific commits from one branch to another. It allows developers to choose individual changesets and integrate them into another branch, providing flexibility and precision in managing code changes.
 
