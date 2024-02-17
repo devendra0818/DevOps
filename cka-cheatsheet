@@ -1,0 +1,60 @@
+Powerful Kubernetes Commands at Your Fingertips for clear the CKA Certification.
+Getting Started:
+•	Alias: Replace kubectl with a shorter alias like k for quicker access.
+Listing Resources:
+•	All K8s Objects: k get all
+•	Specific Resources: Use k get followed by the resource type, e.g., k get nodes, k get pods, k get deployments.
+•	Additional Information: Include -o wide for more details.
+•	Filter by Namespace: Specify --namespace=<namespace> to list resources in a specific namespace.
+•	List All Namespaces: k get namespaces
+Describing Resources:
+•	Detailed Information: Use k describe followed by the resource type and name, e.g., k describe pod <pod-name>, k describe deployment <deployment-name>.
+Creating Resources:
+•	Pod from Image: k run <pod-name> --image <image-name>
+•	Deployment: k create deployment <deployment-name> --image <image-name> --replicas 3
+•	Service:
+o	For Deployment: k expose deployment <deployment-name> --port 80 --name <service-name>
+o	For Pod: k expose pod <pod-name> --port 80 --name <service-name>
+•	From YAML File: k create -f filename.yaml
+Deleting Resources:
+•	Specific Resource: k delete <resource-type> <resource-name>
+•	From YAML File: k delete -f filename.yaml
+Viewing Logs:
+•	Specific Pod: k logs <pod-name>
+•	Live Logs: k logs -f <pod-name>
+•	Container in Multi-Container Pod: k logs <pod-name> <container-name>
+•	Previous Container (Failed Pod): k logs <pod-name> --previous
+Rollouts and Updates:
+•	Deployment Status: k rollout status deployment/<deployment-name>
+•	Deployment History: k rollout history deployment/<deployment-name>
+•	Rollback Deployment: k rollout undo deployment/<deployment-name> (optionally specify revision)
+Node Commands:
+•	Cordon Node (Unschedulable): k cordon <node-name>
+•	Uncordon Node (Schedulable): k uncordon <node-name>
+•	Drain Node:
+o	All Pods: k drain <node-name>
+o	Except DaemonSets: k drain <node-name> --ignore-daemonsets
+Authorization:
+•	View Roles and Bindings: k get roles, k get rolebindings
+•	Check Access: Use k auth can-i followed by the desired operation and optionally specify user/namespace.
+Configuration:
+•	List Clusters: k config get-clusters
+•	Set Context: k config use-context <cluster-name>
+Certificates:
+•	List CSRs: k get csr
+•	View/Approve/Deny CSRs: Use k get csr, k certificate approve/deny <csr-name>.
+Output Formats:
+•	JSON: -o json
+•	Resource Name Only: -o name
+•	Extra Info (Plain Text): -o wide
+•	YAML: -o yaml
+Useful Imperative Commands:
+•	Create Pod: k run <pod-name> --image=<image-name> --command -- <command-with-args>
+•	Create Deployment: k create deployment <deployment-name> --image <image-name> --replicas 3
+•	Create Service:
+o	For Deployment: k expose deployment <deployment-name> --port 80 --name <service-name>
+o	For Pod: k expose pod <pod-name> --port 80 --name <service-name>
+•	Edit Deployment (In-Memory): k edit deployment <deployment-name>
+•	Scale Deployment: k scale deployment <deployment-name> --replicas 3
+•	Update Deployment Image: `k set image deployment <deployment-name> <old-image
+
